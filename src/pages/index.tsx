@@ -5,6 +5,22 @@ import { api } from "~/utils/api";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  /*
+  479AC2 blue
+  sky-600
+  sky-700
+  sky-300
+
+  62BDAA green
+
+  b2a4d0 lavander
+
+  #0ea5e9
+
+  bg-sky-500
+  */
+
+
 
   return (
     <>
@@ -12,8 +28,10 @@ export default function Home() {
         <title>Mill</title>
         <meta name="description" content="Mill plataforma gamificada de educação financeira" />
         <link rel="icon" href="/favicon.ico" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       </Head>
-      <main className="flex h-screen bg-neutral-50">
+      <main className="flex min-h-screen w-screen flex-col bg-neutral-50">
         <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
           <div className="block lg:hidden">
             <button className="flex items-center px-3 py-2 border rounded hover:text-white hover:border-white">
@@ -50,18 +68,115 @@ export default function Home() {
             </div>
           </div>
         </nav>
-
-        
-        <div className="h-5/6 w-full overflow-hidden bg-cover bg-center bg-[url('https://res.cloudinary.com/dbx69s7id/image/upload/v1693410256/cover_oes3df.jpg')]">
+    
+        <div className="h-5/6 mt-16 block w-full overflow-hidden bg-cover bg-center bg-[url('https://res.cloudinary.com/dbx69s7id/image/upload/v1693410256/cover_oes3df.jpg')]">
           <div className="bg-gray-900 bg-opacity-50 flex items-center h-full">
-            <div className="pl-48 max-w-xl">
-              <h2 className="text-5xl text-white">Leve suas finanças para o pŕoximo nível</h2>
+            <div className="pl-40 py-20 max-w-xl">
+              <h2 className="text-6xl text-white">Leve suas finanças para o próximo nível</h2>
               <p className="mt-2 text-gray-300">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
               <button type="button" className="text-white mt-10 bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:bg-sky-800">Faça sua conta grátis</button>
             </div>
           </div>
         </div>
 
+        <div className="px-20 py-16">
+          <h2 className="text-sky-700 text-4xl font-semibold text-center">O que é a Mill?</h2>
+          <p className="text-gray-400 py-8 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor<br/> 
+          incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet.</p>
+          <div className="flex items-center px-40 py-16">
+            <div className="px-8">
+              <span className="material-symbols-outlined text-sky-700 text-9xl text-center flex justify-center">stadia_controller</span>
+              <h3 className="text-gray-500 text-1xl font-semibold text-center mb-4">Gamificação</h3>
+              <p className="text-gray-400 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            </div>
+
+            <div className="px-8">
+              <span className="material-symbols-outlined text-sky-700 text-9xl text-center flex justify-center">school</span>
+              <h3 className="text-gray-500 text-1xl font-semibold text-center mb-4">Educação Financeira</h3>
+              <p className="text-gray-400 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            </div>
+
+            <div className="px-8">
+              <span className="material-symbols-outlined text-sky-700 text-9xl text-center flex justify-center">fitness_center</span>
+              <h3 className="text-gray-500 text-1xl font-semibold text-center mb-4">Prática</h3>
+              <p className="text-gray-400 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-sky-500 bg-opacity-10 px-20 py-16">
+          <h2 className="text-sky-700 text-4xl font-semibold text-center">Preços</h2>
+          <p className="text-gray-400 py-8 text-center">Selecione o plano que mais cobina com você</p>
+
+          <div className="space-y-8 lg:grid lg:grid-cols-2 sm:gap-6 xl:gap-6 lg:space-y-0">
+            {/*Pricing Card*/}
+            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+                <h3 className="mb-4 text-2xl font-semibold">Free</h3>
+                <p className="font-light text-gray-500 sm:text-lg ">Melhor opção para iniciar</p>
+                <div className="flex justify-center items-baseline my-8">
+                    <span className="mr-2 text-5xl font-extrabold">R$0</span>
+                    <span className="text-gray-500">/mês</span>
+                </div>
+                {/*List*/}
+                <ul role="list" className="mb-8 space-y-4 text-left">
+                    <li className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Lorem ipsum dolor</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Lorem ipsum dolor</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Lorem ipsum dolor</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Lorem ipsum dolor</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Lorem ipsum dolor</span>
+                    </li>
+                </ul>
+                <a href="#" className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Começar</a>
+            </div>
+            {/*Pricing Card*/}
+            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+                <h3 className="mb-4 text-2xl font-semibold">Pro</h3>
+                <p className="font-light text-gray-500 sm:text-lg">Uma opção para ter uma experiência mais completa</p>
+                <div className="flex justify-center items-baseline my-8">
+                    <span className="mr-2 text-5xl font-extrabold">R$8,99</span>
+                    <span className="text-gray-500">/mês</span>
+                </div>
+                <ul role="list" className="mb-8 space-y-4 text-left">
+                    <li className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Lorem ipsum dolor</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Lorem ipsum dolor</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Lorem ipsum dolor</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Lorem ipsum dolor</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                        <svg className="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Lorem ipsum dolor</span>
+                    </li>
+                </ul>
+                <a href="#" className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Get started</a>
+            </div>
+          </div>
+
+        </div>
       </main>
     </>
   );
