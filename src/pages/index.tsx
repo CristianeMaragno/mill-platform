@@ -44,10 +44,11 @@ export default function Home() {
               <img src="https://res.cloudinary.com/dbx69s7id/image/upload/v1693408558/logo_m1xmbz.png" className="h-8 mr-3" alt="Mill Logo"/>
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mill</span>
             </a>
-
-
+            
             <div className="flex md:order-2">
-              <button type="button" className="text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:bg-sky-800">Login</button>
+              <Link href={`/sign-up`}>
+                <button type="button" className="text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:bg-sky-800">Login</button>
+              </Link>
             </div>
 
             <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
@@ -85,19 +86,19 @@ export default function Home() {
           incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet.</p>
           <div className="space-y-8 lg:grid justify-items-center lg:grid-cols-3 sm:gap-6 xl:gap-6 lg:space-y-0 lg:mx-20">
             <div className="px-8">
-              <span className="material-symbols-outlined text-sky-700 text-9xl text-center flex justify-center">stadia_controller</span>
+              <span className="features-icon material-symbols-outlined text-sky-700 text-center flex justify-center">stadia_controller</span>
               <h3 className="text-gray-500 text-1xl font-semibold text-center mb-4">Gamificação</h3>
               <p className="text-gray-400 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
             </div>
 
             <div className="px-8">
-              <span className="material-symbols-outlined text-sky-700 text-9xl text-center flex justify-center">school</span>
+              <span className="features-icon material-symbols-outlined text-sky-700 text-center flex justify-center">school</span>
               <h3 className="text-gray-500 text-1xl font-semibold text-center mb-4">Educação Financeira</h3>
               <p className="text-gray-400 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
             </div>
 
             <div className="px-8">
-              <span className="material-symbols-outlined text-sky-700 text-9xl text-center flex justify-center">fitness_center</span>
+              <span className="features-icon material-symbols-outlined text-sky-700 text-center flex justify-center">fitness_center</span>
               <h3 className="text-gray-500 text-1xl font-semibold text-center mb-4">Prática</h3>
               <p className="text-gray-400 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
             </div>
