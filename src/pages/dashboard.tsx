@@ -1,3 +1,4 @@
+import { useUser } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import Link from "next/link";
 
@@ -5,6 +6,8 @@ import { Footer } from "~/components/footer";
 import { Topbar } from "~/components/topbar";
 
 const Dashboard: NextPage = () => {
+  const {user} = useUser();
+  if(!user) return null;
   
   return (
     <main className="flex min-h-screen flex-col items-center bg-neutral-50">

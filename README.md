@@ -1,3 +1,21 @@
+# How to develop
+
+## Install dependencies
+This project uses [npm](https://www.npmjs.com/) as it's package manager. To install dependencies, run:
+
+```bash
+npm install
+``` 
+
+## Environment variables
+Copy the .env.example file to a new file called .env on the project root and replace the values with the sensitive information needed.
+
+## Run dev server
+After installing, you may start the project with:
+```bash
+npm run dev
+```
+
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.

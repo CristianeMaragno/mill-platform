@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+Blue
+#479AC2
+sky-300
+sky-600
+sky-700
+
+Green
+#62BDAA
+
+Lavander
+#B2A4D0
+*/
+
 .features-icon{
-    font-size: 140px;
+    font-size: 140px !important;
 }

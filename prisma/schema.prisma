@@ -1,17 +1,45 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-    provider = "prisma-client-js"
-}
-
 datasource db {
-    provider = "sqlite"
-    url      = env("DATABASE_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User { //User data
+    id              Int   @id @default(autoincrement())
+    email           String   
+    registration    DateTime @default(now())
+}
+
+model Question { //Questions related to be done through the experience
+    id              Int   @id @default(autoincrement())
+    question        String
+    phase           Int
+}
+
+model UserQuestion { //User answer
+    id              Int   @id @default(autoincrement())
+    user            String
+    phase           Int
+    answer          String
+}
+
+model Phase {
+   id              Int   @id @default(autoincrement())
+   phase           Int 
+   name            String
+   description     String
+   active          Boolean
+}
+
+model UserPhase {
+   id              String   @id @default(cuid())
+   phase           Int 
+   user            String
 }

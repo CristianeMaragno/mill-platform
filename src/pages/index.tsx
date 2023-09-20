@@ -1,28 +1,20 @@
 import Head from "next/head";
 import Link from "next/link";
-
+import { useRef } from 'react';
 import { api } from "~/utils/api";
-
 import { Footer } from "~/components/footer";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  /*
-  479AC2 blue
-  sky-600
-  sky-700
-  sky-300
 
-  62BDAA green
+  //const ref = useRef(null);
 
-  b2a4d0 lavander
-
-  #0ea5e9
-
-  bg-sky-500
-  */
-
-
+  const handleClickScroll = (ref: string) => {
+    const element = document.getElementById(ref);
+    if(element){
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
@@ -58,14 +50,14 @@ export default function Home() {
                 <li>
                   <a href="#" className="block py-2 pl-3 pr-4 text-white bg-sky-600 rounded md:bg-transparent md:text-sky-700  md:p-0" aria-current="page">Home</a>
                 </li>
-                <li>
-                  <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-700 md:p-0">O que é a Mill</a>
+                <li onClick={() => handleClickScroll("section-about")}>
+                  <span className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:cursor-pointer hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-700 md:p-0">O que é a Mill</span>
                 </li>
-                <li>
-                  <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-700 md:p-0">Aprenda</a>
+                <li onClick={() => handleClickScroll("section-prices")}>
+                  <span className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:cursor-pointer hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-700 md:p-0">Preços</span>
                 </li>
-                <li>
-                  <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-700 md:p-0">Preços</a>
+                <li onClick={() => handleClickScroll("section-learn")}>
+                  <span className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:cursor-pointer hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-700 md:p-0">Aprenda</span>
                 </li>
               </ul>
             </div>
@@ -82,24 +74,24 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="px-20 py-16">
+        <div id="section-about" className="px-20 py-16">
           <h2 className="text-sky-700 text-4xl font-semibold text-center">O que é a Mill?</h2>
           <p className="text-gray-400 py-8 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor<br/> 
           incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet.</p>
           <div className="space-y-8 lg:grid justify-items-center lg:grid-cols-3 sm:gap-6 xl:gap-6 lg:space-y-0 lg:mx-20">
-            <div className="px-8">
+            <div className="px-8 flex flex-col">
               <span className="features-icon material-symbols-outlined text-sky-700 text-center flex justify-center">stadia_controller</span>
               <h3 className="text-gray-500 text-1xl font-semibold text-center mb-4">Gamificação</h3>
               <p className="text-gray-400 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
             </div>
 
-            <div className="px-8">
+            <div className="px-8 flex flex-col">
               <span className="features-icon material-symbols-outlined text-sky-700 text-center flex justify-center">school</span>
               <h3 className="text-gray-500 text-1xl font-semibold text-center mb-4">Educação Financeira</h3>
               <p className="text-gray-400 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
             </div>
 
-            <div className="px-8">
+            <div className="px-8 flex flex-col">
               <span className="features-icon material-symbols-outlined text-sky-700 text-center flex justify-center">fitness_center</span>
               <h3 className="text-gray-500 text-1xl font-semibold text-center mb-4">Prática</h3>
               <p className="text-gray-400 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
@@ -107,11 +99,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-sky-500 bg-opacity-10 px-20 py-16">
+        <div id="section-prices" className="bg-sky-500 bg-opacity-10 px-20 py-16">
           <h2 className="text-sky-700 text-4xl font-semibold text-center">Preços</h2>
           <p className="text-gray-400 py-8 text-center">Selecione o plano que mais cobina com você</p>
 
-          <div className="space-y-8 lg:grid justify-items-center lg:grid-cols-4 sm:gap-6 xl:gap-12 lg:space-y-0">
+          <div className="space-y-8 lg:grid justify-items-center lg:grid-cols-3 sm:gap-6 xl:gap-12 lg:space-y-0">
             {/*Pricing Card*/}
             <div></div>
             <div className="flex flex-col p-6 max-w-lg w-full text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow xl:p-8">
@@ -144,10 +136,12 @@ export default function Home() {
                   <span>Lorem ipsum dolor</span>
                 </li>
               </ul>
-              <a href="#" className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Começar</a>
+              <Link href={`/sign-up`}>
+                <button type="button" className="text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:bg-sky-800">Começar a usar</button>
+              </Link>
             </div>
             {/*Pricing Card*/}
-            <div className="flex flex-col p-6 max-w-lg w-full text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+            {/*<div className="flex flex-col p-6 max-w-lg w-full text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow xl:p-8">
               <h3 className="mb-4 text-2xl font-semibold">Pro</h3>
               <p className="font-light text-gray-500 sm:text-lg">Uma opção para ter uma experiência mais completa</p>
               <div className="flex justify-center items-baseline my-8">
@@ -177,12 +171,12 @@ export default function Home() {
                 </li>
               </ul>
               <a href="#" className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">Get started</a>
-            </div>
+            </div>*/}
             <div></div>
           </div>
         </div>
 
-        <div className="px-20 py-16 flex flex-col items-center">
+        <div id="section-learn" className="px-20 py-16 flex flex-col items-center">
           <h2 className="text-sky-700 text-4xl font-semibold text-center">Aprenda</h2>
           <p className="text-gray-400 py-8 text-center">Se inscreva a nossa newsletter receba informações reelevantes e icas sobre finanças</p>
 
