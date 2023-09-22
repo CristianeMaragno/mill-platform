@@ -5,6 +5,7 @@ import { api } from "~/utils/api";
 
 import { Footer } from "~/components/footer";
 import { Topbar } from "~/components/topbar";
+import { Bubble } from "@typebot.io/nextjs";
 
 const Dashboard: NextPage = () => {
   const { data } = api.module.getAll.useQuery();
@@ -16,6 +17,10 @@ const Dashboard: NextPage = () => {
   return (
     <main className="flex min-h-screen flex-col items-center bg-neutral-50">
 		  <Topbar></Topbar>
+      <Bubble
+        typebot="my-typebot-mg8w5tz"
+        theme={{ button: { backgroundColor: "#479AC2" } }}
+      />
 
       <div className="w-full mt-16 py-12 px-28 bg-sky-500 bg-opacity-10 lg:grid lg:grid-cols-2">
         <div>
