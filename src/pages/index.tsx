@@ -1,9 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useRef } from 'react';
-import { api } from "~/utils/api";
 import { Footer } from "~/components/footer";
-import { Bubble } from "@typebot.io/nextjs";
 
 export default function Home() {
   const handleClickScroll = (ref: string) => {
@@ -23,10 +20,6 @@ export default function Home() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       </Head>
       <main className="flex min-h-screen w-screen flex-col bg-neutral-50">
-        <Bubble
-          typebot="my-typebot-mg8w5tz"
-          theme={{ button: { backgroundColor: "#B2A4D0" } }}
-        />
         <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
           <div className="block lg:hidden">
             <button className="flex items-center px-3 py-2 border rounded hover:text-white hover:border-white">
