@@ -11,10 +11,11 @@ generator client {
 }
 
 model User {
-  id           Int          @id @default(autoincrement())
-  email        String       @unique
-  registration DateTime     @default(now())
-  UserModule   UserModule[]
+  id                  Int          @id @default(autoincrement())
+  email               String       @unique
+  registration        DateTime     @default(now())
+  paymentCustomerId   String?
+  UserModule          UserModule[]
 }
 
 model Module {
