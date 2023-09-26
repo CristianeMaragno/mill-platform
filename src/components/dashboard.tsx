@@ -1,12 +1,10 @@
 import { useUser } from "@clerk/nextjs";
-import { type NextPage } from "next";
-import Link from "next/link";
 import { api } from "~/utils/api";
 
 import { Footer } from "~/components/footer";
 import { Topbar } from "~/components/topbar";
 
-const Dashboard: NextPage = () => {
+export const Dashboard = () => {
   const { data } = api.module.getAll.useQuery();
   console.log(data);
 
@@ -34,10 +32,18 @@ const Dashboard: NextPage = () => {
         <br/>divertida. Abaixo você encontra os nossos módulos liberados de acordo com sua necessidade no momento.</p>
       </div>
 
-      <div className="space-y-8 lg:grid lg:grid-cols-3 xl:gap-6 lg:space-y-0">
+      <div className="space-y-8 grid grid-cols-4 gap-10 lg:space-y-0 mx-20">
         {data?.map((module) => 
           (
-            module.name
+            <div key={module.id} className="flex flex-col items-center cursor-pointer">
+              <div className="w-fit p-4 bg-slate-200 rounded-full mb-6">
+                <span className="modules-icon material-symbols-outlined text-sky-700 text-center flex justify-center">{module.icon}</span>
+              </div>
+
+              <h2 className="text-gray-500 text-1xl font-semibold text-center mb-4">{module.name}</h2>
+              <p className="text-gray-400 text-center">{module.description}</p>
+
+            </div>
           ))
         }
       </div>

@@ -6,7 +6,10 @@ import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 export const moduleRouter = createTRPCRouter({
   getAll: publicProcedure.query(async ({ ctx }) => {
     const modules = await ctx.prisma.module.findMany({
-      take: 5
+      take: 5,
+      where: {
+        active: true
+      }
     });
     if (!modules) throw new TRPCError({ code: "NOT_FOUND" });
 

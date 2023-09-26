@@ -1,14 +1,17 @@
 'use client';
 import { getLocalStorage, setLocalStorage } from '~/utils/storageHelper';
 import { useState, useEffect } from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function CookieBanner(){
-	const [cookieConsent, setCookieConsent] = useState(false);
+	const [cookieConsent, setCookieConsent] = useState<boolean | null>(false);
+	//const [cookieHasAnswer, setHasAnswer] = useState(false);
 
     useEffect (() => {
-        const storedCookieConsent = getLocalStorage("cookie_consent", null)
-        setCookieConsent(storedCookieConsent)
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const storedCookieConsent = getLocalStorage("cookie_consent", null);
+		const value = typeof storedCookieConsent  == 'boolean' ?? null;
+        setCookieConsent(value);
     }, [setCookieConsent])
 
     
@@ -19,8 +22,6 @@ export default function CookieBanner(){
         });
 
         setLocalStorage("cookie_consent", cookieConsent)
-        //For Testing
-        console.log("Cookie Consent: ", cookieConsent)
 
     }, [cookieConsent]);
 
