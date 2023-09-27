@@ -2,9 +2,12 @@ import Head from "next/head";
 import { LandingPage } from "~/components/landingPage";
 import { Dashboard } from "~/components/dashboard";
 import { useUser } from "@clerk/nextjs";
+import { CreateChatBot } from "~/components/bubble";
 
 export default function Home() {
   const {user} = useUser();
+
+  CreateChatBot();
 
   return (
     <>
