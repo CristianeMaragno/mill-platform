@@ -18,7 +18,7 @@ export default async function handler(
   let evt: WebhookEvent;
   try {
     // Verify the webhook payload and headers
-    evt = wh.verify(payload, headers) as WebhookEvent;
+    evt = await wh.verify(payload, headers) as WebhookEvent;
   } catch (_) {
     // If the verification fails, return a 400 error
     return res.status(400).json({});
