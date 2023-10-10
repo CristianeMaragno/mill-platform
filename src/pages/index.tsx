@@ -1,6 +1,5 @@
 import Head from "next/head";
-import { LandingPage } from "~/components/landingPage";
-import { Dashboard } from "~/components/dashboard";
+import { PageControl } from "~/components/pageControl";
 import { useUser } from "@clerk/nextjs";
 import { CreateChatBot } from "~/components/bubble";
 
@@ -19,12 +18,7 @@ export default function Home() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       </Head>
       <main>{/* Melhorar renderização condicional da home */}
-        <div className={`${!user ? "flex" : "hidden"}`}>
-          <LandingPage/>
-        </div>
-        <div className={`${user ? "flex" : "hidden"}`}>
-          <Dashboard/>
-        </div>
+        <PageControl logged={user ? true : false}/>
       </main>
     </>
   );
