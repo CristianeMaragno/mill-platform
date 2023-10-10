@@ -1,5 +1,5 @@
-import { LandingPage } from "~/pages/landingPage";
-import { Dashboard } from "~/pages/dashboard";
+import { LandingPage } from "~/components/landingPage";
+import { Dashboard } from "~/components/dashboard";
 
 export const PageControl = (props: { logged: boolean }) => {
     let page;
